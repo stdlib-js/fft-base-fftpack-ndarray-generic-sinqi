@@ -117,7 +117,7 @@ The function has the following parameters:
 
 ## Notes
 
--   Let `N` equal the number of elements in the input ndarray. The input ndarray is divided into four sections:
+-   Let `N` equal the length of the sequence to transform. The input ndarray is divided into four sections:
 
     ```text
             size = N              N                   N          2+ceil(log2(N)/2)
@@ -202,11 +202,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 ---
 
-## License
-
-See [LICENSE][stdlib-license].
-
-
 ## Copyright
 
 Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
@@ -252,8 +247,6 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [esm-url]: https://github.com/stdlib-js/fft-base-fftpack-ndarray-generic-sinqi/tree/esm
 [esm-readme]: https://github.com/stdlib-js/fft-base-fftpack-ndarray-generic-sinqi/blob/esm/README.md
 [branches-url]: https://github.com/stdlib-js/fft-base-fftpack-ndarray-generic-sinqi/blob/main/branches.md
-
-[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/fft-base-fftpack-ndarray-generic-sinqi/main/LICENSE
 
 </section>
 
