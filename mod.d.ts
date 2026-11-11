@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,18 +16,16 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/fft-base-fftpack-generic-sinqi' );
-var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
+import { typedndarray, floatndarray, genericndarray } from '@stdlib/types/ndarray';
 
-
-// MAIN //
+/**
+* Input array.
+*/
+type InputArray = floatndarray | genericndarray<number>;
 
 /**
 * Initializes a workspace array for performing a quarter-wave sine transform on a one-dimensional ndarray.
@@ -39,8 +37,8 @@ var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
 *     -   a one-dimensional input ndarray.
 *     -   a zero-dimensional ndarray containing the length of the sequence to transform.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {ndarrayLike} input ndarray
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
@@ -70,17 +68,9 @@ var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
 * var factors = slice( w, new Slice( 3*N, ( 3*N ) + 4 ) );
 * // returns <ndarray>[ 8, 2, 2, 4 ]
 */
-function sinqi( arrays ) {
-	var w;
-	var N;
-
-	w = arrays[ 0 ];
-	N = ndarraylike2scalar( arrays[ 1 ] );
-	strided( N, getData( w ), getStride( w, 0 ), getOffset( w ) );
-	return w;
-}
+declare function sinqi<T extends InputArray = InputArray>( arrays: [ T, typedndarray<number> ] ): T;
 
 
 // EXPORTS //
 
-module.exports = sinqi;
+export = sinqi;
